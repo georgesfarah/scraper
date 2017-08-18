@@ -1,0 +1,32 @@
+html, body {
+   height:100%;
+}
+* {
+  margin:0;
+  padding:0;
+}
+
+#wrap{min-height:100%;width:100%;
+background-color: #22A6E5;text-align: center;padding-top: 20px;
+padding-bottom: 20px;}
+
+
+#elem{width: 90%;
+margin-left: 5%;background-color: #2382af;
+padding-top: 10px;
+padding-bottom: 10px;margin-top: 15px;}
+
+
+#output{width: 90%;visibility: hidden;
+margin-left: 5%;background-color: #2382af;
+padding-top: 10px;
+padding-bottom: 10px;margin-top: 15px;}
+
+#textarea{
+width: 90%;visibility: hidden;
+margin-left: 0%;background-color: white;
+padding-top: 10px;
+padding-bottom: 10px;margin-top: 15px;	
+resize: none;
+height: 214px;
+}
