@@ -1,4 +1,3 @@
-
 <?php
 include('simple_html_dom.php');
   
@@ -147,22 +146,4 @@ $test=array_chunk($test, $total);
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode(array("result"=>$test),JSON_UNESCAPED_SLASHES);
 
-//$abc = array('Subj1'=>'Physics','Subj2'=>'Chemistry','Subj3'=>'Mathematics','Class'=>array(5,6,7,8));  
-//print_r($abc);  
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-//$length = count($res); $half=$length/2;
-//for ($i = 0; $i < $half; $i++) {
- // array_push($respclass,$res[$i]);
-//}
-//$secondhalf=$half+1;
-//for ($i = $secondhalf; $i < $length; $i++) {
- // array_push($resposition,$res[$i]);
-//}
-
-
-
-//header('Content-Type: application/json; charset=utf-8');
-//echo json_encode(array("result"=>$result),JSON_UNESCAPED_SLASHES);
 ?>
