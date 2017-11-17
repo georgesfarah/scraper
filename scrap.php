@@ -14,28 +14,27 @@ $html = file_get_html($url);
 
 foreach($html ->find('a') as $item) {
 
-        $value = $item->href;
+$value = $item->href;
 
-       if (filter_var($value, FILTER_VALIDATE_URL)) { 
-  $item->href=$value;
+if (!filter_var($value, FILTER_VALIDATE_URL)) { 
+$item->href=$url.$value;
 }
-else{       $item->href = $url.$value;}
+
     }
 
 foreach($html ->find('img') as $item) {
 
-        $value = $item->src;
+$value = $item->src;
      
-
-if (filter_var($value, FILTER_VALIDATE_URL)) { 
-  $item->src=$value;
+if (!filter_var($value, FILTER_VALIDATE_URL)) { 
+$item->src=$url.$value;
 } 
-else{ $item->src = $url.$value;}
 
     }
 
 $html->save();
-$result=array();		$classs=array();$typeee=array();$pclass=array();$ptype=array();$position=array();$pssclass=array();$psstype=array();$respclass=array();$resposition=array();   
+$result=array();		
+$classs=array();$typeee=array();$pclass=array();$ptype=array();$position=array();$pssclass=array();$psstype=array();$respclass=array();$resposition=array();   
 
 foreach($_GET['classs'] as $value) {
     array_push($classs,$value);
