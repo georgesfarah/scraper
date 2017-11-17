@@ -1,9 +1,9 @@
-var i;var j;var k;i=0;j=0;k=0;var dataString;var url;   var res;
+var i;var j;var k;i=0;j=0;k=0;
    $(document).ready(function(){
 new Clipboard('#copytoclip');new Clipboard('#copyjson');
    	/////////////////////////////////////////////////
 $("#submit").click(function(){
-url=$("input[name=url]").val().trim();
+var url=$("input[name=url]").val().trim();
 if(url==''){alert("Please Enter a Url");}
 else{
 if(i==0 && j==0 && k==0)
@@ -13,21 +13,21 @@ alert("Please Choose At Least One Element");
 else
 {
 
-genstring();
+var thestring=genstring();
 $('#output').css('visibility','visible');
 var loc= window.location.href.split("/");
 loc.splice(-1,1);
-var loc = loc.join("/")+"/scrap.php?"+dataString; 
+var loc = loc.join("/")+"/scrap.php?"+thestring; 
 $('#outputtt').text(loc);
 $('#textarea').css('visibility','visible');
 
 $.ajax({
  method: 'GET',
 url: "scrap.php",
-data: dataString,
+data: thestring,
 cache: false,
 success: function(result){
-	res=result;
+	
 var jsonout=JSON.stringify(result);
 $('#textarea').val(jsonout);
 $("#copyjson").attr("data-clipboard-text", jsonout);
@@ -79,9 +79,10 @@ $('.exxx'+zzz).css('visibility','visible');
 
 });
 
-//var textValue = $("input[name=text]").val()
+
 function genstring(){
-dataString = 'url='+url+'&i='+i+'&j='+j+'&k='+k;
+	var url=$("input[name=url]").val().trim();
+var dataString = 'url='+url+'&i='+i+'&j='+j+'&k='+k;
 
 for (c = 0; c < i; c++) { if($("input[name=classs"+c+"]").val()==''){alert('classs'+c+'is empty!')}
 			else if($("input[name=typeee"+c+"]").val()==''){alert('typeee'+c+'is empty!')}
@@ -101,5 +102,5 @@ for (c = 0; c < k; c++) {if($("input[name=pssclass"+c+"]").val()==''){alert('pss
   dataString=dataString+"&psstype["+c+"]="+ $("input[name=psstype"+c+"]").val().trim();}
 } 
 
-
+return dataString;
 }
